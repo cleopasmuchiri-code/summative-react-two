@@ -96,7 +96,7 @@ const Profile = () => {
 
         <button
           onClick={toggleTheme}
-          className="text-center text-text cursor-pointer flex justify-center items-center gap-3  px-3 py-1 border border-text-muted/30 rounded-full hover:bg-primary-light"
+          className="text-center text-text cursor-pointer flex justify-center items-center gap-2  px-3 py-1 border border-text-muted/30 rounded-full hover:bg-primary-light"
         >
           {theme === "light" ? <Moon /> : <Sun />}
           <p className=" font-semibold">

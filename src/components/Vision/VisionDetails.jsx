@@ -8,6 +8,7 @@ import HistoryCard from "../History/HistoryCard";
 import { getLeaderboard } from "../../utils/getLeaderBoard";
 import VisionForm from "../Forms/VisionForm";
 import { Pencil, Trash } from "lucide-react";
+import LeaderBoard from "./LeaderBoard";
 
 const VisionDetails = () => {
   // navigate
@@ -149,6 +150,23 @@ const VisionDetails = () => {
             </div>
           </div>
 
+          {leaderBoard.length > 1 && (
+            <div className="flex flex-col gap-2">
+              <p className="text-text">Leaderboard</p>
+              <div className="rounded-2xl overflow-hidden shadow border border-text-muted/30">
+                {leaderBoard.map((board, index) => (
+                  <div>
+                    <LeaderBoard
+                      key={board.id}
+                      index={index}
+                      leaderBoard={board}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {visionContributions.length <= 0 ? (
             <div className="w-full h-full grid place-items-center gap-8">
               <h1 className="text-accent-warm text-xl">
@@ -166,14 +184,17 @@ const VisionDetails = () => {
               </div>
             </div>
           ) : (
-            <div className="rounded-xl overflow-hidden shadow border border-text-muted/30">
-              {visionContributions.map((contribution) => (
-                <HistoryCard
-                  key={contribution.id}
-                  contribution={contribution}
-                  editContributionToggle={handleSelectedContributionClick}
-                />
-              ))}
+            <div className="flex flex-col gap-2">
+              <p className="text-text">Recent Contributions</p>
+              <div className="rounded-2xl overflow-hidden shadow border border-text-muted/30">
+                {visionContributions.map((contribution) => (
+                  <HistoryCard
+                    key={contribution.id}
+                    contribution={contribution}
+                    editContributionToggle={handleSelectedContributionClick}
+                  />
+                ))}
+              </div>
             </div>
           )}
 

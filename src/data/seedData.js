@@ -1,6 +1,6 @@
 export const seedData = {
   users: [
-    { id: "u1", name: "Cleopas" },
+    { id: "u1", name: "Cleopas Muchiri" },
     { id: "u2", name: "Vincent" },
     { id: "u3", name: "Dancun" },
     { id: "u4", name: "Aysha" },
