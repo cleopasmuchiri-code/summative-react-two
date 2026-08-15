@@ -5,34 +5,38 @@ import LandingPage from "./components/LandingPage";
 import History from "./components/History/History.jsx";
 import VisionDetail from "./components/Vision/VisionDetails";
 import NotFound from "./components/NotFound.jsx";
-
+import { Toaster } from "react-hot-toast";
 // layout
 import MainLayout from "./components/MainLayout.jsx";
 
 const App = () => {
   return (
-    <main className="flex justify-center items-center pb-8">
-      <div className="w-full">
-        <Routes>
-          {/* for errors */}
-          <Route path="*" element={<NotFound />} />
+    <>
+      <main className="flex justify-center items-center pb-8">
+        <div className="w-full">
+          <Routes>
+            {/* for errors */}
+            <Route path="*" element={<NotFound />} />
 
-          {/* app routes */}
+            {/* app routes */}
 
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<LandingPage />} />
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<LandingPage />} />
 
-            <Route path="/history" element={<History />} />
-            <Route path="/profile" element={<Profile />} />
+              <Route path="/history" element={<History />} />
+              <Route path="/profile" element={<Profile />} />
 
-            <Route path="/visions">
-              <Route index element={<Visions />} />
-              <Route path=":id" element={<VisionDetail />} />
+              <Route path="/visions">
+                <Route index element={<Visions />} />
+                <Route path=":id" element={<VisionDetail />} />
+              </Route>
             </Route>
-          </Route>
-        </Routes>
-      </div>
-    </main>
+          </Routes>
+        </div>
+      </main>
+
+      <Toaster position="top-center" />
+    </>
   );
 };
 

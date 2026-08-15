@@ -99,7 +99,7 @@ const ContributionForm = ({
             Cancel
           </button>
           <button
-            className="cursor-pointer flex justify-center items-center gap-3 bg-primary hover:bg-primary-hover px-3 py-1 rounded-full"
+            className="text-primary-light cursor-pointer flex justify-center items-center gap-3 bg-primary hover:bg-primary-hover px-3 py-1 rounded-full"
             type="submit"
           >
             {selectedContribution && selectedContribution.id ? "Save" : "Add"}

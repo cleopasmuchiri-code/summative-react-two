@@ -1,8 +1,8 @@
 import { useApp } from "../../context/AppContext";
-import { Pencil } from "lucide-react";
+import { Pencil, Trash } from "lucide-react";
 
 const HistoryCard = ({ contribution, editContributionToggle }) => {
-  const { currentUserId, users, visions } = useApp();
+  const { currentUserId, users, visions, deleteContribution } = useApp();
 
   const vision = visions.find((v) => v.id === contribution.visionId);
   const contributor = users.find((u) => u.id === contribution.memberId);
@@ -29,14 +29,22 @@ const HistoryCard = ({ contribution, editContributionToggle }) => {
         </div>
 
         {isCurrentUser && editContributionToggle ? (
-          <button
-            className="cursor-pointer text-text-muted"
-            onClick={() => editContributionToggle(contribution)}
-          >
-            <Pencil size={14} />
-          </button>
+          <div className="flex gap-1">
+            <button
+              className="cursor-pointer text-text-muted"
+              onClick={() => editContributionToggle(contribution)}
+            >
+              <Pencil size={14} />
+            </button>
+            <button
+              className="cursor-pointer text-text-muted"
+              onClick={() => deleteContribution(contribution.id)}
+            >
+              <Trash size={14} />
+            </button>
+          </div>
         ) : (
-          <div className="w-3.5" />
+          <div className="w-8" />
         )}
       </div>
     </div>

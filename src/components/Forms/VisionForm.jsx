@@ -10,7 +10,6 @@ const emptyFormData = {
   targetDate: "",
   quickDefault: "",
   memberIds: [],
-  createdAt: today,
 };
 
 const VisionForm = ({ selectedVision, closeVisionModal }) => {
@@ -75,9 +74,17 @@ const VisionForm = ({ selectedVision, closeVisionModal }) => {
     const payload = { ...formData, memberIds };
 
     if (selectedVision && selectedVision.id) {
-      editVision({ ...payload, id: selectedVision.id });
+      editVision({
+        ...payload,
+        id: selectedVision.id,
+        createdAt: selectedVision.createdAt,
+      });
     } else {
-      createVision({ ...payload, id: crypto.randomUUID() });
+      createVision({
+        ...payload,
+        id: crypto.randomUUID(),
+        createdAt: today,
+      });
     }
 
     setFormData({ ...emptyFormData, memberIds: [currentUserId] });
