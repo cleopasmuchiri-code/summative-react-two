@@ -80,6 +80,8 @@ export function AppProvider({ children }) {
 
   function deleteContribution(contributionId) {
     setContributions((prev) => prev.filter((c) => c.id !== contributionId));
+
+    toast.success("Contribution deleted");
   }
 
   return (

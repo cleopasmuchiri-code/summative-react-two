@@ -115,7 +115,7 @@ const VisionForm = ({ selectedVision, closeVisionModal }) => {
           : "Create vision"}{" "}
       </h2>
       <form
-        className="z-100  text-left bg-surface p-6 rounded-xl flex flex-col gap-4"
+        className="  text-left bg-surface p-6 rounded-xl flex flex-col gap-4"
         onSubmit={handleSubmit}
       >
         <div className="w-full ">

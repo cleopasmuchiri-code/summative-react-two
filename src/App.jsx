@@ -35,7 +35,28 @@ const App = () => {
         </div>
       </main>
 
-      <Toaster position="top-center" />
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            background: "var(--color-surface)",
+            color: "var(--color-text)",
+            border: "1px solid var(--color-border)",
+          },
+          success: {
+            iconTheme: {
+              primary: "var(--color-primary)",
+              secondary: "var(--color-primary-light)",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#ef4444",
+              secondary: "#fff",
+            },
+          },
+        }}
+      />
     </>
   );
 };
