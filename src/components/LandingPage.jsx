@@ -1,11 +1,11 @@
-import { useApp } from "../../context/AppContext";
+import { useApp } from "../context/AppContext";
 import {
   calculateStreak,
   getUserContributionDates,
   getSortedVisions,
-} from "../../utils/landingHelpers";
-import VisionCard from "../Vision/VisionCard";
-import { getVisionProgress } from "../../utils/getVisionProgress";
+} from "../utils/landingHelpers";
+import VisionCard from "../components/Vision/VisionCard";
+import { getVisionProgress } from "../utils/getVisionProgress";
 import { Link } from "react-router-dom";
 import { Flame } from "lucide-react";
 import { useNavigate } from "react-router-dom";

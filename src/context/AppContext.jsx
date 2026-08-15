@@ -1,6 +1,7 @@
 import { useContext, createContext, useEffect } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { seedData } from "../data/seedData";
+import { toast } from "react-hot-toast";
 
 const AppContext = createContext(undefined);
 
@@ -35,6 +36,8 @@ export function AppProvider({ children }) {
 
   function createVision(newVision) {
     setVisions((prev) => [...prev, newVision]);
+
+    toast.success(`"${newVision.title}" created`);
   }
 
   function editVision(updatedVision) {
@@ -44,7 +47,15 @@ export function AppProvider({ children }) {
   }
 
   function deleteVision(visionId) {
-    setContributions((prev) => prev.filter((c) => c.id !== visionId));
+    const exists = visions.some((v) => v.id === visionId);
+    if (!exists) {
+      toast.error("Vision not found");
+      return;
+    }
+    setVisions((prev) => prev.filter((v) => v.id !== visionId));
+    setContributions((prev) => prev.filter((c) => c.visionId !== visionId));
+
+    toast.success("Vision deleted");
   }
 
   // contribution
@@ -55,6 +66,8 @@ export function AppProvider({ children }) {
 
   function addContribution(newContribution) {
     setContributions((prev) => [...prev, newContribution]);
+
+    toast.success(`Ksh ${newContribution.amount} added 🎉`);
   }
 
   function editContribution(updatedContribution) {
@@ -67,6 +80,8 @@ export function AppProvider({ children }) {
 
   function deleteContribution(contributionId) {
     setContributions((prev) => prev.filter((c) => c.id !== contributionId));
+
+    toast.success("Contribution deleted");
   }
 
   return (
