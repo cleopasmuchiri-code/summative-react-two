@@ -55,7 +55,7 @@ const Navbar = () => {
 
           <Link
             to="/profile"
-            className="text-primary font-extrabold bg-primary/10 w-8 h-8 flex justify-center items-center rounded-full"
+            className="text-sm text-primary font-bold bg-primary/10 w-8 h-8 flex justify-center items-center rounded-full"
           >
             {initials}
           </Link>
