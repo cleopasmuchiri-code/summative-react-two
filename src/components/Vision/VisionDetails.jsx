@@ -136,10 +136,16 @@ const VisionDetails = () => {
             </div>
 
             <div className="flex justify-start gap-2 ">
-              <QuickAddContribution
-                quickDefault={vision.quickDefault}
-                visionId={id}
-              />
+              {vision.quickDefault && !vision.quickDefault <= 0 ? (
+                <>
+                  <QuickAddContribution
+                    quickDefault={vision.quickDefault}
+                    visionId={id}
+                  />
+                </>
+              ) : (
+                <></>
+              )}
 
               <button
                 className="cursor-pointer text-center text-text py-3 px-4  border border-text-muted/30 rounded-full hover:bg-primary-light"
@@ -173,14 +179,20 @@ const VisionDetails = () => {
                 Not contributions added
               </h1>
               <div className="text-center">
-                <QuickAddContribution
-                  quickDefault={vision.quickDefault}
-                  visionId={id}
-                />
+                {vision.quickDefault && !vision.quickDefault <= 0 ? (
+                  <>
+                    <QuickAddContribution
+                      quickDefault={vision.quickDefault}
+                      visionId={id}
+                    />
 
-                <p className="pt-2 text-text-muted text-xs">
-                  Make first contribution
-                </p>
+                    <p className="pt-2 text-text-muted text-xs">
+                      Make first contribution
+                    </p>
+                  </>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
           ) : (

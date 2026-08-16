@@ -87,6 +87,7 @@ const ContributionForm = ({
             name="date"
             type="date"
             className="mt-1 bg-bg w-full p-2 px-4 rounded-2xl text-text placeholder:text-text-muted border border-text-muted/40 focus:border-primary focus:outline-0"
+            required
           />
         </div>
 
