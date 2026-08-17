@@ -48,7 +48,6 @@ const Profile = () => {
 
   const sortedDates = getSortedDates(dates);
   const startDate = sortedDates[sortedDates.length - 1];
-
   return (
     <main className="flex flex-col gap-6">
       <h2 className="text-2xl font-extrabold text-text">Profile</h2>
